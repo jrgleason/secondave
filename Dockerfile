@@ -8,4 +8,4 @@ COPY . /src
 # Install app dependencies
 RUN cd /src; npm install
 EXPOSE  3000
-CMD ["./bin/www"]
+CMD ["/src/bin/www"]
