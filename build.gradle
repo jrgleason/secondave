@@ -19,32 +19,32 @@ project.buildDir = './out'
 repositories {
     mavenCentral()
 }
-task npm(type:Exec) {
-    if(System.getProperty("os.name").toLowerCase(Locale.ROOT).contains("windows")){
-        // commandLine "npm.cmd", "install"
-        workingDir = "${projectDir}"
-        executable = "npm.cmd"
-        args = ["install"]
-    } else{
-        // commandLine "npm", "install"
-        workingDir = "${projectDir}"
-        executable = "npm"
-        args = ["install"]
-    }
-}
-task webpack(type:Exec) {
-    if(System.getProperty("os.name").toLowerCase(Locale.ROOT).contains("windows")){
-        //commandLine "npm.cmd", "run", "webpack"
-        workingDir = "${projectDir}"
-        executable = "npm.cmd"
-        args = ["run", "webpack"]
-    } else{
-        // commandLine "npm", "run", "webpack"
-        workingDir = "${projectDir}"
-        executable = "npm"
-        args = ["run", "webpack"]
-    }
-}
+//task npm(type:Exec) {
+//    if(System.getProperty("os.name").toLowerCase(Locale.ROOT).contains("windows")){
+//        // commandLine "npm.cmd", "install"
+//        workingDir = "${projectDir}"
+//        executable = "npm.cmd"
+//        args = ["install"]
+//    } else{
+//        // commandLine "npm", "install"
+//        workingDir = "${projectDir}"
+//        executable = "npm"
+//        args = ["install"]
+//    }
+//}
+//task webpack(type:Exec) {
+//    if(System.getProperty("os.name").toLowerCase(Locale.ROOT).contains("windows")){
+//        //commandLine "npm.cmd", "run", "webpack"
+//        workingDir = "${projectDir}"
+//        executable = "npm.cmd"
+//        args = ["run", "webpack"]
+//    } else{
+//        // commandLine "npm", "run", "webpack"
+//        workingDir = "${projectDir}"
+//        executable = "npm"
+//        args = ["run", "webpack"]
+//    }
+//}
 
 // TODO: Caused by: java.io.IOException: Cannot run program "npm" (in directory "/Users/jackiegleason/Code/spring-security"): error=2, No such file or directory
 //webpack.dependsOn "npm"
