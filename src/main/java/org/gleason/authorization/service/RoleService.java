@@ -4,10 +4,11 @@ import org.gleason.authorization.domain.Role;
 import org.gleason.authorization.repo.RoleRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 
-@Component
+@Service
 public class RoleService {
     private RoleRepo repo;
     private final EntityManager entityManager;

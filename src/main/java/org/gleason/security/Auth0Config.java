@@ -24,7 +24,8 @@ public class Auth0Config extends WebSecurityConfigurerAdapter {
             "/",
             "/bundle.js",
             "/login",
-            "/callback"
+            "/callback",
+            "/i18n"
     };
     private static final String[] AUTH = {
             "/**"
@@ -47,15 +48,6 @@ public class Auth0Config extends WebSecurityConfigurerAdapter {
     @Value(value = "${com.auth0.clientSecret}")
     private String clientSecret;
 
-    @Bean
-    public InternalResourceViewResolver viewResolver() {
-        InternalResourceViewResolver viewResolver
-                = new InternalResourceViewResolver();
-        viewResolver.setViewClass(JstlView.class);
-        viewResolver.setPrefix("/WEB-INF/jsp/");
-        viewResolver.setSuffix(".jsp");
-        return viewResolver;
-    }
     @Bean
     public AuthenticationController authenticationController() throws UnsupportedEncodingException {
         return AuthenticationController.newBuilder(domain, clientId, clientSecret)
