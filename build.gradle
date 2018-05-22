@@ -65,5 +65,6 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-actuator:latest.release'
 //    compile 'com.auth0:auth0-spring-security-api:latest.release'
     compile 'com.auth0:mvc-auth-commons:latest.release'
+    compile 'com.auth0:auth0-spring-security-api:latest.release'
     testCompile 'junit:junit:latest.release'
 }

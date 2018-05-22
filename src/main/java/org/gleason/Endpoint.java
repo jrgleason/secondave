@@ -4,6 +4,7 @@ package org.gleason;
 import com.auth0.Tokens;
 import org.gleason.authorization.domain.Role;
 import org.gleason.authorization.service.RoleService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,10 @@ public class Endpoint{
 		Role result = new Role();
 		result.setName("Role Name");
 		roleService.addRole(result);
+	}
+	@GetMapping("/admin")
+	public void getAdmin(){
+		System.out.println("Free Bird!");
 	}
 
 

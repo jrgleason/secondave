@@ -1,6 +1,7 @@
 package org.gleason.security;
 
 import com.auth0.AuthenticationController;
+import com.auth0.spring.security.api.JwtWebSecurityConfigurer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,6 +21,7 @@ import java.io.UnsupportedEncodingException;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class Auth0Config extends WebSecurityConfigurerAdapter {
 
+    private static final String ADMIN_ROLE = "Admin";
     private static final String[] NO_AUTH = {
             "/",
             "/bundle.js",
@@ -30,6 +32,13 @@ public class Auth0Config extends WebSecurityConfigurerAdapter {
     private static final String[] AUTH = {
             "/**"
     };
+    private static final String[] ADMIN = {
+            "/admin/**"
+    };
+    @Value(value = "${auth0.apiAudience}")
+    private String apiAudience;
+    @Value(value = "${auth0.issuer}")
+    private String issuer;
     /**
      * This is your auth0 domain (tenant you have created when registering with auth0 - account name)
      */
@@ -57,14 +66,13 @@ public class Auth0Config extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
-
         http
                 .authorizeRequests()
                 .antMatchers(NO_AUTH).permitAll()
+                .antMatchers(ADMIN).hasRole(ADMIN_ROLE)
                 .antMatchers(AUTH).authenticated()
                 .and()
                 .logout().permitAll();
-        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER);
     }
 
     public String getDomain() {

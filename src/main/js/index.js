@@ -9,12 +9,14 @@ import Content from "./vue/Content.vue";
 import VueRx from 'vue-rx';
 import 'vue-material/dist/theme/default-dark.css';
 import * as Rx from 'rxjs/Rx';
+import VueResource from 'vue-resource';
 (()=>{
     window.menuSubject = new Rx.Subject();
     console.log("We are in here");
     Vue.use(VueMaterial);
     Vue.use(VueRouter);
     Vue.use(VueRx, Rx);
+    Vue.use(VueResource);
     Vue.component("jg-viewport", Viewport);
     Vue.component("jg-header", Header);
     Vue.component("jg-content", Content);
