@@ -27,10 +27,9 @@ public class LoginController {
                 req.getServerName();
         if(req.getServerPort() != 80){
             redirectUri +=":" +
-                    req.getServerPort() +
-                    "/callback";
+                    req.getServerPort();
         }
-
+        redirectUri += "/callback";
         String authorizeUrl = controller.buildAuthorizeUrl(req, redirectUri)
                 .withAudience(
                         String.format(
