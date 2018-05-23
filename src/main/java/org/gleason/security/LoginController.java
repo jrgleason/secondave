@@ -24,10 +24,13 @@ public class LoginController {
         logger.debug("Performing login");
         String redirectUri = req.getScheme() +
                 "://" +
-                req.getServerName() +
-                ":" +
-                req.getServerPort() +
-                "/callback";
+                req.getServerName();
+        if(req.getServerPort() != 80){
+            redirectUri +=":" +
+                    req.getServerPort() +
+                    "/callback";
+        }
+
         String authorizeUrl = controller.buildAuthorizeUrl(req, redirectUri)
                 .withAudience(
                         String.format(
