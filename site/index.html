@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-5">
+        <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=no,minimal-ui">
+        <title>SecondAve.net</title>
+        <link href="//fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
+        <link href="//unpkg.com/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            html, body{
+                margin: 0;
+                height: 100%;
+                width:100%;
+                font-family: 'Quantico', sans-serif;
+                font-weight: bold;
+                font-size: xx-large;
+            }
+            mwc-top-app-bar-fixed {
+                --mdc-theme-primary: red;
+                --mdc-theme-on-primary: white;
+            }
+            .hidden{
+                display:none;
+            }
+            .main{
+                padding-top: 2em;
+                width:100%;
+                display:flex;
+                align-content: center;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body class="hidden">
+        <mwc-top-app-bar-fixed>
+            <div slot="title">Second Ave</div>
+        </mwc-top-app-bar-fixed>
+        <div class="main">
+            <h1>Welcome</h1>
+        </div>
+        <script src="//unpkg.com/@jrg/ui/target/jrg-ui.min.esm.mjs" type="module"></script>
+        <script>
+            const run = setTimeout(() => {
+                const elems = document.querySelectorAll(".hidden");
+
+                [].forEach.call(elems, function (el) {
+                    el.classList.remove("hidden");
+                });
+
+            },200);
+            if (document.readyState === 'complete') {
+                run();
+            } else {
+                document.onreadystatechange = function () {
+                    if (document.readyState === "complete") {
+                        run();
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

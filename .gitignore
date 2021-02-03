@@ -34,3 +34,4 @@ node_modules
 out
 .DS_Store
 *.ipr
+*.iml
