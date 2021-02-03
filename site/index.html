@@ -26,6 +26,7 @@
                 padding-top: 2em;
                 width:100%;
                 display:flex;
+                flex-direction: column;
                 align-content: center;
                 justify-content: center;
                 align-items: center;
@@ -38,6 +39,14 @@
         </mwc-top-app-bar-fixed>
         <div class="main">
             <h1>Welcome</h1>
+            <ol>
+                <li>
+                    <mwc-button
+                            label="Pi-Hole"
+                            onclick="window.location.href='/admin'"
+                    ></mwc-button>
+                </li>
+            </ol>
         </div>
         <script src="//unpkg.com/@jrg/ui/target/jrg-ui.min.esm.mjs" type="module"></script>
         <script>
